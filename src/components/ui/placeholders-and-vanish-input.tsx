@@ -2,6 +2,13 @@ import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
+type ParticleData = {
+  x: number;
+  y: number;
+  r: number;
+  color: string;
+};
+
 export function PlaceholdersAndVanishInput({
   placeholders,
   onChange,
@@ -41,7 +48,7 @@ export function PlaceholdersAndVanishInput({
   }, [placeholders]);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const newDataRef = useRef<any[]>([]);
+  const newDataRef = useRef<ParticleData[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState("");
   const [animating, setAnimating] = useState(false);
@@ -182,6 +189,7 @@ export function PlaceholdersAndVanishInput({
         value && "bg-gray-50"
       )}
       onSubmit={handleSubmit}
+      autoComplete="off"
     >
       <canvas
         className={cn(
