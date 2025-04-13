@@ -16,7 +16,7 @@ const JobsListingPage = async ({ q }: JobsListingPageProps) => {
     <>
       <DotBackgroundDemo>
         <div className="p-10 flex items-start">
-          <div className="flex  flex-col z-2 min-w-[300px] w-[40%] max-w-[500px]  sticky top-0">
+          <div className="flex flex-col z-2 min-w-[300px] w-[40%] max-w-[500px]  sticky top-0">
             {jobs?.slice(1)?.map((job: JobType) => {
               return <JobList key={job?.id} job={job} />;
             })}

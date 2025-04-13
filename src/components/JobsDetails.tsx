@@ -3,7 +3,7 @@
 import { useJobContext } from "@/context/JobContext";
 import { getDateFormat } from "@/lib/utils";
 import { JobType } from "@/types";
-import React from "react";
+import React, { useEffect } from "react";
 import CustomButton from "./ui/custom-button";
 
 import parse from "html-react-parser";
@@ -13,9 +13,9 @@ type JobsDetailsProps = {
 };
 
 const JobsDetails = ({ defaultJob }: JobsDetailsProps) => {
-  const { selectedJob } = useJobContext();
+  const { selectedJob, setSelectedJob } = useJobContext();
   const job = selectedJob || defaultJob;
-  console.log("job", job);
+
   const {
     position,
     company,
@@ -26,6 +26,10 @@ const JobsDetails = ({ defaultJob }: JobsDetailsProps) => {
     apply_url,
     description,
   } = job;
+
+  useEffect(() => {
+    setSelectedJob(job);
+  }, [job]);
 
   return (
     <div className="z-2 p-10 w-full">
