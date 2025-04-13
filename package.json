@@ -12,6 +12,7 @@
     "@tabler/icons-react": "^3.31.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "html-react-parser": "^5.2.3",
     "motion": "^12.6.5",
     "next": "15.3.0",
     "react": "^19.0.0",

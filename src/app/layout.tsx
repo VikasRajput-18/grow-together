@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mona_Sans } from "next/font/google";
 import "./globals.css";
+import JobProvider from "@/context/JobContext";
 
 const monaSans = Mona_Sans({
   variable: "--font-geist-sans",
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${monaSans.variable} antialiased`}>{children}</body>
+      <body className={`${monaSans.variable} antialiased`}>
+        <JobProvider>{children}</JobProvider>
+      </body>
     </html>
   );
 }
