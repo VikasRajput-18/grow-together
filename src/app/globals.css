@@ -17,4 +17,13 @@
   }
 }
 
+@layer base {
+  .job_description {
+    @apply !text-neutral-300;
+    span {
+      @apply !text-neutral-300;
+    }
+  }
+}
+
 /* for spotlight animation  */

@@ -78,7 +78,7 @@ const JobsDetails = ({ defaultJob }: JobsDetailsProps) => {
         />
       </div>
 
-      <div className="text-neutral-300 mt-4 prose prose-invert max-w-none">
+      <div className=" mt-4 prose prose-invert max-w-none job_description">
         {parse(description.replace(/\\n|\n/g, ""))}
       </div>
     </div>
