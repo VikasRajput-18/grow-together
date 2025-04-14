@@ -16,7 +16,7 @@ const Pagination = ({
 }: PaginationProps) => {
   const handlePageChange = (type: string) => {
     if (type === "dec") {
-      setPage((prev) => (prev > 0 ? prev - 1 : 1));
+      setPage((prev) => (prev > 1 ? prev - 1 : 1));
     } else {
       setPage((prev) => (prev < totalPages ? prev + 1 : totalPages));
     }
