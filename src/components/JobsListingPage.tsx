@@ -1,8 +1,8 @@
 import React from "react";
 import { DotBackgroundDemo } from "./ui/dot-background";
-import { JobType } from "@/types";
-import JobList from "./JobList";
 import JobsDetails from "./JobsDetails";
+import JobLists from "./JobLists";
+import EmptyPage from "./EmptyPage";
 
 interface JobsListingPageProps {
   q: string;
@@ -16,12 +16,14 @@ const JobsListingPage = async ({ q }: JobsListingPageProps) => {
     <>
       <DotBackgroundDemo>
         <div className="p-10 flex items-start">
-          <div className="flex flex-col z-2 min-w-[300px] w-[40%] max-w-[500px]  sticky top-0">
-            {jobs?.slice(1)?.map((job: JobType) => {
-              return <JobList key={job?.id} job={job} />;
-            })}
-          </div>
-          <JobsDetails defaultJob={jobs?.[1]} />
+          {jobs?.length > 1 ? (
+            <>
+              <JobLists jobs={jobs} />
+              <JobsDetails defaultJob={jobs?.[1]} />
+            </>
+          ) : (
+            <EmptyPage q={q} />
+          )}
         </div>
       </DotBackgroundDemo>
     </>

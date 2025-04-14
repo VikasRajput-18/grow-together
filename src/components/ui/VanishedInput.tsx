@@ -17,7 +17,6 @@ export default function VanishedInput() {
     e.preventDefault();
     const form = e.currentTarget;
     const input = form.elements.namedItem("jobSearch") as HTMLInputElement;
-
     router.push(`/jobs?q=${input?.value}`);
   };
   return (
