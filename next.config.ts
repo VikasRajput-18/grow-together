@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
         hostname: "remoteok.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "assets.aceternity.com",
+        pathname: "/**",
+      },
     ],
   },
 };

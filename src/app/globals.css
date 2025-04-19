@@ -17,6 +17,7 @@
   }
 }
 
+
 @layer base {
   .job_description {
     @apply !text-neutral-300;

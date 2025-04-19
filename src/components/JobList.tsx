@@ -17,9 +17,9 @@ const JobList = ({ job }: { job: JobType }) => {
     >
       <div className="cursor-pointer" onClick={() => setSelectedJob(job)}>
         <div>
-          <h3 className="text-neutral-200 font-bold text-lg">{position}</h3>
+          <h3 className="text-neutral-200 font-bold text-md">{position}</h3>
           <div className="w-full flex items-center justify-between mt-2">
-            <p className="text-neutral-400 text-sm font-semibold italic">
+            <p className="text-neutral-400 text-xs font-semibold italic">
               {company}
             </p>
             <p className="text-neutral-400 text-xs font-semibold italic">
@@ -35,6 +35,5 @@ const JobList = ({ job }: { job: JobType }) => {
     </div>
   );
 };
-// 18602660811
 
 export default JobList;
