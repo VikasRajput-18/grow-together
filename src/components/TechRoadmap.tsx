@@ -4,7 +4,6 @@ import React, { useActionState } from "react";
 import { BackgroundBeamsDemo } from "./ui/beams-background-comp";
 import { generateRoadmapAction } from "@/actions/actions";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm"; // for tables, strikethrough, etc.
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 
 const TechRoadMap = () => {
@@ -15,6 +14,8 @@ const TechRoadMap = () => {
   );
 
   const { roadmap } = state;
+
+  console.log("roadmap", roadmap);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center z-2 overflow-x-hidden">
@@ -59,11 +60,35 @@ const TechRoadMap = () => {
         </form>
         {roadmap && (
           <div className="mt-8 w-full rounded-lg text-white p-3">
-            <div className="prose prose-invert max-w-full break-words whitespace-pre-wrap">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <article className="prose prose-invert dark:prose-invert max-w-none leading-relaxed space-y-6 text-base sm:text-lg z-2">
+              <ReactMarkdown
+                components={{
+                  h2: ({ ...props }) => (
+                    <h2
+                      className="text-3xl font-bold text-neutral-200 mt-8 mb-4 z-2"
+                      {...props}
+                    />
+                  ),
+                  h3: ({ ...props }) => (
+                    <h3
+                      className="text-xl font-semibold text-neutral-300 mt-6 mb-2 z-2"
+                      {...props}
+                    />
+                  ),
+                  p: ({ ...props }) => (
+                    <p className="mb-4 text-neutral-300 z-2" {...props} />
+                  ),
+                  li: ({ ...props }) => (
+                    <li
+                      className="mb-2 list-disc list-inside text-neutral-300 z-2"
+                      {...props}
+                    />
+                  ),
+                }}
+              >
                 {roadmap}
               </ReactMarkdown>
-            </div>
+            </article>
           </div>
         )}
       </BackgroundBeamsDemo>

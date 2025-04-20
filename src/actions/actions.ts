@@ -17,18 +17,27 @@ export async function generateRoadmapAction(
     return { roadmap: "Please provide both a role and a company." };
   }
 
-  const improvedPrompt = `You are a professional roadmap generator. Create a detailed, well-structured, beautifully formatted **Markdown** roadmap for the role of a ${role} at ${company}. 
+  const improvedPrompt = `You are a professional roadmap generator. Create a clear, visually-scannable, and well-structured **Markdown** roadmap for the role of **${role}** at **${company}**.
 
-  Use clear headings, bullet points, and short paragraphs. Ensure:
+  ### Guidelines:
   
-  - Top-level sections (like "Phase 1", "Phase 2") are **H2** ("##")
-  - Sub-sections (e.g., "Focus Areas", "Tools") are **H3** ("###")
-  - Add extra line breaks between sections for clarity
-  - Avoid too much text in a single paragraph
-  - Make it easy to scan visually
+  - Begin with a brief summary introducing the **role** and the **company**.
+  - Use concise language, short paragraphs, and avoid text-heavy sections.
+  - Organize the content using clear markdown formatting:
+    
+    - Use **H2** (##) for main phases or top-level sections (e.g., "Phase 1: Foundations").
+    - Use **H3** (###) for sub-sections (e.g., "Key Skills", "Focus Areas", "Tools & Technologies").
+    - Use **bullet points** for lists to improve readability.
+    - Ensure there's **extra spacing** between sections to improve visual flow.
   
-  Also include a short summary about the role and company at the beginning.
-  `;
+  ### Formatting Tips:
+  
+  - Keep paragraphs short (2–3 lines max).
+  - Use bold or italic styling to highlight important points.
+  - Group related content logically under each phase.
+  - Prioritize clarity and simplicity over dense explanations.
+  
+  Make sure the final roadmap is easy to scan and pleasant to read on both desktop and mobile.`;
 
   try {
     const result = await ai.models.generateContent({
