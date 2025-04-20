@@ -27,7 +27,7 @@ const TechRoadMap = () => {
         </h1>
 
         <form
-          className="flex flex-col md:flex-row items-center gap-4 w-full max-w-4xl z-2"
+          className="flex flex-col md:flex-row items-center gap-4 w-full max-w-4xl z-2 p-3"
           action={formAction}
           autoComplete="off"
         >
@@ -48,7 +48,7 @@ const TechRoadMap = () => {
           <button
             type="submit"
             disabled={isPending}
-            className={`px-4 py-2 rounded text-white ${
+            className={`px-4 w-full sm:w-max py-2 rounded text-white ${
               isPending
                 ? "bg-gray-600 cursor-not-allowed"
                 : "bg-blue-600 hover:bg-blue-700 cursor-pointer"
